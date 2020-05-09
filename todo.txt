@@ -6,7 +6,8 @@ use scss
 -----------------------------------
 navbar(header)
 
-set up firestore, auth, redux states, redux thunk with firestore
+set up firestore, auth, redux states,
+redux thunk with firestore
 
 footer
 
@@ -18,7 +19,9 @@ sign up
 
 tutorial
 
-create examples in tutorial, show how to do EVERYTHING, display multiple trackers
+create examples in tutorial,
+show how to do EVERYTHING,
+display multiple trackers
 
 report bugs email or something like that
 
