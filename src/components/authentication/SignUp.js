@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { signup } from '../../store/actions/authActions';
 
 class SignUp extends React.Component {
     state = {
@@ -15,8 +17,10 @@ class SignUp extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if(this.state.password === this.state.passwordRepeat)
+        if(this.state.password === this.state.passwordRepeat) {
+            this.props.signup(this.state);
             console.log('sign up successful', this.state);
+        }
         else
             console.log('sign up error', this.state);
     }
@@ -42,4 +46,10 @@ class SignUp extends React.Component {
     }
 }
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signup: (credentials) => dispatch(signup(credentials))
+    }
+};
+
+export default connect(null, mapDispatchToProps)(SignUp);
