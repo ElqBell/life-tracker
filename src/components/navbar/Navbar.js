@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
-import { connect } from 'react-redux';
 
 function Navbar(props) {
     const links = props.auth.uid ? <SignedInLinks/> : <SignedOutLinks/>;
@@ -10,7 +10,11 @@ function Navbar(props) {
         <nav>
             <div>
                 <Link to="/">Life Tracker</Link>
-                {links}
+                <ul>
+                    {links}
+                    <li><Link to='/about'>About</Link></li>
+                    <li><Link to='/contact'>Contact</Link></li>
+                </ul>
             </div>
         </nav>
     )

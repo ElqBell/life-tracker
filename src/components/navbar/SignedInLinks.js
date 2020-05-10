@@ -4,9 +4,9 @@ import { logout } from '../../store/actions/authActions';
 
 function SignedInLinks(props) {
     return(
-        <ul>
-            <li><button onClick={props.logout} type="button">Log Out</button></li>
-        </ul>
+        <li>
+            <button onClick={props.logout} type="button">Log Out</button>
+        </li>
     )
 }
 

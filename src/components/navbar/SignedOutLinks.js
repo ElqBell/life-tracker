@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 
 function SignedOutLinks() {
     return(
-        <ul>
+        <React.Fragment>
             <li><Link to="/signup">Sign Up</Link></li>
             <li><Link to="/login">Log In</Link></li>
-        </ul>
+        </React.Fragment>
     )
 }
 
