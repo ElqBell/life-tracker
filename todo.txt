@@ -4,46 +4,53 @@ try to reuse as much code as possible
 use scss
 
 -----------------------------------
-navbar(header)
+do styles
 
-set up firestore, auth, redux states,
-redux thunk with firestore
-
+about
+contact
 footer
-
-log in
-
-log out
-
-sign up
 
 tutorial
 
 create examples in tutorial,
-show how to do EVERYTHING,
-display multiple trackers
+show how to do EVERYTHING
 
 report bugs email or something like that
 
-restore password and email
-
-dashboard home screen when logged out
+restore password and email,
+change password and email,
+email or other confirmation when logging in from unknown device,
+enable phone authentication,
+google authenticator,
+also ability to change and remove different authentication methods,
+ability to sign in with google/facebook...
 
 dashboard side panel navigation
 
 ability to create new data tracker
-
 ability to delete data tracker
-
 ability to edit, delete, add your data to data tracker
-
 ability to create data tracker with multiple inputs per day pvz mood mano
 
 find out how to display data
 
-add ability to display multiple data trackers in one graph
+add ability to display multiple data trackers in one chart
+or compare + like binance to slide mouse and show exact value
 
 calorie and nutrients counter(data from some api about every food and drink), but
-if it doesnt exist or even if it does, add ability to write your own calories or edit the suggested, but don't make user count every calorie, it would be good to give multiple ways to input data, example user can choose 100g and in 100g there is 214 calories and they also input that they ate 250g and automatically calculate
+if it doesnt exist or even if it does, add ability to write your own calories
+or edit the suggested, but don't make user count every calorie,
+it would be good to give multiple ways to input data,
+for example user can choose 100g and in 100g there
+is 214 calories and they also input that they ate
+250g and automatically calculate nutrients,calories, vitamins...
 
-implement route guarding
+show daily how much necessary vitamins/minerals they need,
+if they eat enough and all.
+
+finish route guarding
+finish redirecting
+
+make the ability to import data from file(csv, txt...)
+
+ability to share progress graph on social media
