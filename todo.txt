@@ -6,6 +6,8 @@ use scss
 -----------------------------------
 do styles
 
+create loading screen
+
 about
 contact
 footer
