@@ -13,13 +13,11 @@ export const signup = (credentials) => {
 export const login = (credentials) => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
-        console.log(firebase);
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
         )
         .then(() => {
-            console.log(firebase);
             dispatch({ type: 'LOGIN_SUCCESS', credentials });
         })
         .catch(error => dispatch({ type: 'LOGIN_ERROR', error}));
