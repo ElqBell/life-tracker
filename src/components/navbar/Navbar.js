@@ -6,8 +6,8 @@ import SignedInLinks from './SignedInLinks';
 function Navbar(props) {
     const links = props.auth.uid ? <SignedInLinks/> : null;
     return(
-        <nav>
-            <div>
+        <header>
+            <nav>
                 <Link to="/">Life Tracker</Link>
                 <ul>
                     {links}
@@ -15,8 +15,8 @@ function Navbar(props) {
                     <li><Link to='/about'>About</Link></li>
                     <li><Link to='/contact'>Contact</Link></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </header>
     )
 }
 
