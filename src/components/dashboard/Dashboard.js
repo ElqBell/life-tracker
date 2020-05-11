@@ -1,13 +1,12 @@
 import React from 'react';
-import DashboardSignedOut from './DashboardSignedOut';
-import DashboardSignedIn from './DashboardSignedIn';
+import SignedOutDashboard from './signedOutDashboard/SignedOutDashboard';
+import SignedInDashboard from './signedInDashboard/SignedInDashboard';
 import { connect } from 'react-redux';
  
 function Dashboard(props) {
-    const dashboard = props.auth.uid ? <DashboardSignedIn/> : <DashboardSignedOut/>;
     return (
         <div>
-            {dashboard}
+            {props.auth.uid ? <SignedInDashboard/> : <SignedOutDashboard/>}
         </div>
     )
 }

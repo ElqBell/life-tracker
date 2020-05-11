@@ -3,8 +3,8 @@ import './App.css';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
-import About from './components/dashboard/About';
-import Contact from './components/dashboard/Contact';
+import About from './components/dashboard/about/About';
+import Contact from './components/dashboard/contact/Contact';
 import SignUp from './components/authentication/SignUp';
 import LogIn from './components/authentication/LogIn';
 import Footer from './components/footer/Footer';
@@ -17,6 +17,7 @@ function App() {
         <Navbar/>
         <Switch>
           <Route exact path="/" component={Dashboard}/>
+          <Route path="/dashboard" component={Dashboard}/>
           <Route exact path="/about" component={About}/>
           <Route exact path="/contact" component={Contact}/>
           <Route exact path="/signup" component={SignUp}/>

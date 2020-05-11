@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Contact() {
+function Charts() {
     return (
         <div>
-            <p>Contact!</p>
+            <h1>CHARTS!</h1>
         </div>
     )
 }
 
-export default Contact;
+export default Charts;
