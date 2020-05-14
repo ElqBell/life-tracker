@@ -1,6 +1,6 @@
 import React from 'react';
-import Charts from './Charts';
-import Trackers from './Trackers';
+import Charts from './charts/Charts';
+import Trackers from './trackers/Trackers';
 import { NavLink, Route } from 'react-router-dom';
 
 function SignedInDashboard() {
