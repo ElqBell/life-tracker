@@ -56,3 +56,7 @@ finish redirecting
 make the ability to import data from file(csv, txt...)
 
 ability to share progress graph on social media
+
+write firestore rules
+
+make dark mode
