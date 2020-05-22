@@ -53,6 +53,20 @@ if they eat enough and all.
 finish route guarding
 finish redirecting
 
+create tracker - fields count explanation!
+
+maybe make ability to customize trackers so that they can be whatever a user wants,
+not just date and then their data.
+
+add ability to add data from past dates
+
+add ability to sort when viewing tracker information
+
+add ability to select an interval to show in chart instead of the whole tracker data
+
+make front end validation for typing in only numbers when creating a tracker
+(for example `e` should not be allowed)
+
 make the ability to import data from file(csv, txt...)
 
 ability to share progress graph on social media
