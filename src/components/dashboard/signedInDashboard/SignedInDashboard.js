@@ -1,7 +1,7 @@
 import React from 'react';
-import Charts from './charts/Charts';
+import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import Trackers from './trackers/Trackers';
-import { NavLink, Route } from 'react-router-dom';
+import Charts from './charts/Charts';
 
 function SignedInDashboard() {
     return (
@@ -9,15 +9,16 @@ function SignedInDashboard() {
             <header>
                 <nav>
                     <ul>
-                        <li><NavLink to="/dashboard/trackers">Trackers</NavLink></li>
+                        <li><NavLink to="/dashboard">Trackers</NavLink></li>
                         <li><NavLink to="/dashboard/charts">Charts</NavLink></li>
                     </ul>
                 </nav>
             </header>
             <main>
-                <Route exact path="/" component={Trackers}/>
-                <Route path="/dashboard/trackers" component={Trackers}/>
-                <Route path="/dashboard/charts" component={Charts}/>
+                <Switch>
+                    <Route exact path="/dashboard" component={Trackers}/>
+                    <Route path="/dashboard/charts" component={Charts}/>
+                </Switch>
             </main>
         </div>
     )

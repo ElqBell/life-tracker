@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import About from './components/dashboard/about/About';
@@ -16,12 +16,14 @@ function App() {
       <div className="App">
         <Navbar/>
         <Switch>
-          <Route exact path="/" component={Dashboard}/>
+          <Route exact path="/">
+            <Redirect to="/dashboard"/>
+          </Route>
           <Route path="/dashboard" component={Dashboard}/>
-          <Route exact path="/about" component={About}/>
-          <Route exact path="/contact" component={Contact}/>
-          <Route exact path="/signup" component={SignUp}/>
-          <Route exact path="/login" component={LogIn}/>
+          <Route path="/about" component={About}/>
+          <Route path="/contact" component={Contact}/>
+          <Route path="/signup" component={SignUp}/>
+          <Route path="/login" component={LogIn}/>
           <Route component={PageNotFound}/>
         </Switch>
         <Footer/>
