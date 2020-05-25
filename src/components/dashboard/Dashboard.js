@@ -6,14 +6,14 @@ import { connect } from 'react-redux';
 function Dashboard(props) {
     return (
         <div>
-            {props.auth.uid ? <SignedInDashboard/> : <SignedOutDashboard/>}
+            {props.uid ? <SignedInDashboard/> : <SignedOutDashboard/>}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        uid: state.firebase.auth.uid
     }
 };
 

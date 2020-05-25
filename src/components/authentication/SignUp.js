@@ -27,7 +27,7 @@ class SignUp extends React.Component {
     }
 
     render() {
-        if(this.props.auth.uid)
+        if(this.props.uid)
             return <Redirect to='/'/>
         return (
             <div>
@@ -51,7 +51,7 @@ class SignUp extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        uid: state.firebase.auth.uid
     }
 };
 

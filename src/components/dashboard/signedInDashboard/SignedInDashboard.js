@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import Trackers from './trackers/Trackers';
 import Charts from './charts/Charts';
 
