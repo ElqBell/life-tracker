@@ -7,10 +7,9 @@ export const signup = (credentials) => {
         )
         .then((response) => {
             const firestore = getFirestore();
-            firestore.collection('users')
-            .doc(response.user.uid).set({});
+            firestore.doc(`users/${response.user.uid}`).set({});
         })
-        .then(dispatch({ type: 'SIGNUP_SUCCESS', credentials }))
+        .then(dispatch({ type: 'SIGNUP_SUCCESS' }))
         .catch(error => dispatch({ type: 'SIGNUP_ERROR', error}));
     };
 };
@@ -23,7 +22,7 @@ export const login = (credentials) => {
             credentials.password
         )
         .then(() => {
-            dispatch({ type: 'LOGIN_SUCCESS', credentials });
+            dispatch({ type: 'LOGIN_SUCCESS' });
         })
         .catch(error => dispatch({ type: 'LOGIN_ERROR', error}));
     };

@@ -18,12 +18,8 @@ class SignUp extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if(this.state.password === this.state.passwordRepeat) {
+        if(this.state.password === this.state.passwordRepeat)
             this.props.signup(this.state);
-            console.log('sign up successful', this.state);
-        }
-        else
-            console.log('sign up error', this.state);
     }
 
     render() {
