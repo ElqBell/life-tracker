@@ -1,4 +1,4 @@
-check out char libraries(recharts)
+check out chart libraries(recharts)
 
 try to reuse as much code as possible
 use scss
@@ -28,9 +28,6 @@ also ability to change and remove different authentication methods,
 ability to sign in with google/facebook...
 
 dashboard side panel navigation
-
-ability to create new data tracker
-ability to delete data tracker
 ability to edit, delete, add your data to data tracker
 ability to create data tracker with multiple inputs per day pvz mood mano
 

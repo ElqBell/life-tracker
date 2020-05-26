@@ -1,53 +1,30 @@
 import React from 'react';
-import moment from 'moment';
 import { connect } from 'react-redux';
-import { deleteTracker } from '../../../../../store/actions/trackerActions';
 
-class TrackerDetails extends React.Component {
-    state = {
-        deleteRequest: false
-    }
-
-    handleDelete = () => {
-        if(this.state.deleteRequest)
-            this.props.deleteTracker(this.props.tracker.id);
-        else
-            this.setState({deleteRequest: true});
-    }
-
-    render() {
-        const { tracker } = this.props;
-        return (
-            <tr>
-                <td>{tracker.name}</td>
-                <td>
-                    {
-                        typeof tracker.lastUpdatedAt === 'string' ?
-                        tracker.lastUpdatedAt :
-                        moment(tracker.lastUpdatedAt.toDate()).format('lll')
-                    }
-                </td>
-                <td>{moment(tracker.createdAt.toDate()).format('lll')}</td>
-                <td>{tracker.trackedDaysCount}</td>
-                <td>Add Data</td>
-                <td>View Chart</td>
-                <td>Edit</td>
-                <td>
-                    <button onClick={this.handleDelete} type="button">
-                        {this.state.deleteRequest ?
-                        'Are you sure?' :
-                        'Delete'}
-                    </button>
-                </td>
-            </tr>
-        )
-    }
+function TrackerDetails({ tracker }) {
+    return (
+        <div>
+            {
+            tracker ?
+                <div>
+                    <p>{tracker.name}</p>
+                    <p>{tracker.id}</p>
+                </div>
+            : null
+            }
+        </div>
+    )
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state, ownProps) => {
+    const trackers = state.firestore.ordered.trackers;
+    const tracker = trackers ?
+                    trackers.find(tracker => tracker.id === ownProps.match.params.id) :
+                    null;
     return {
-        deleteTracker: (trackerID) => dispatch(deleteTracker(trackerID))
+        uid: state.firebase.auth.uid,
+        tracker
     }
 };
 
-export default connect(null, mapDispatchToProps)(TrackerDetails);
+export default connect(mapStateToProps)(TrackerDetails);
