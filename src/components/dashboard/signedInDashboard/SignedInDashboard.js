@@ -1,13 +1,19 @@
 import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
+import { useFirestoreConnect } from 'react-redux-firebase';
 import Trackers from './trackers/Trackers';
 import Charts from './charts/Charts';
 import TrackerDetails from './trackers/displayTrackers/TrackerDetails';
 
-function SignedInDashboard() {
+function SignedInDashboard(props) {
+    useFirestoreConnect(() => {
+        return [{
+            collection: `users/${props.uid}/trackers`,
+            storeAs: 'trackers'
+        }]
+    });
+
     return (
         <div>
             <header>
@@ -35,15 +41,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default compose(
-    connect(mapStateToProps),
-    firestoreConnect((props) => {
-        if(!props.uid) return [];
-        return [{
-            collection: 'users',
-            doc: props.uid,
-            subcollections: [{ collection: 'trackers' }],
-            storeAs: 'trackers'
-        }]
-    }),
-)(SignedInDashboard);
+export default connect(mapStateToProps)(SignedInDashboard);
