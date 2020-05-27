@@ -20,6 +20,26 @@ const trackerReducer = (state = {trackerError: null}, action) => {
                 ...state,
                 trackerError: 'Tracker deletion failed'
             }
+        case 'ADD_FIELD_DATA_SUCCESS':
+            return {
+                ...state,
+                trackerError: null
+            }
+        case 'ADD_FIELD_DATA_ERROR':
+            return {
+                ...state,
+                trackerError: 'Adding field data failed'
+            }
+        case 'DELETE_TRACKED_DAY_DATA_SUCCESS':
+            return {
+                ...state,
+                trackerError: null
+            }
+        case 'DELETE_TRACKED_DAY_DATA_ERROR':
+            return {
+                ...state,
+                trackerError: 'Deleting day data failed'
+            }
         default:
             return state;
     }

@@ -1,27 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { deleteTracker } from '../../../../../store/actions/trackerActions';
 import { Link } from 'react-router-dom';
+import DeleteButtonWithConfirmation from '../../../../deleteButtonWithConfirmation/DeleteButtonWithConfirmation';
 
-function TrackerSummary({ tracker, deleteTracker }) {
-    const [deleteRequest, setDeleteRequest] = useState(false);
-
-    const handleDelete = () => {
-        if(deleteRequest)
-            deleteTracker(tracker.id);
-        else
-            setDeleteRequest(true);
-    }
-
+function TrackerSummary(props) {
+    const { tracker, deleteTracker } = props;
     return (
         <tr>
             <td><Link to={`dashboard/tracker/${tracker.id}`}>{tracker.name}</Link></td>
             <td>
                 {
-                typeof tracker.lastUpdatedAt === 'string' ?
-                tracker.lastUpdatedAt :
-                moment(tracker.lastUpdatedAt.toDate()).format('lll')
+                    typeof tracker.lastUpdatedAt === 'string' ?
+                    tracker.lastUpdatedAt :
+                    moment(tracker.lastUpdatedAt.toDate()).format('lll')
                 }
             </td>
             <td>{moment(tracker.createdAt.toDate()).format('lll')}</td>
@@ -29,13 +22,7 @@ function TrackerSummary({ tracker, deleteTracker }) {
             <td><Link to={`dashboard/tracker/${tracker.id}`}>Add Data</Link></td>
             <td>View Chart</td>
             <td>Edit</td>
-            <td>
-                <button onClick={handleDelete} type="button">
-                    {deleteRequest ?
-                    'Are you sure?' :
-                    'Delete'}
-                </button>
-            </td>
+            <td><DeleteButtonWithConfirmation deleteFunction={deleteTracker} itemID={tracker.id}/></td>
         </tr>
     )
 }
