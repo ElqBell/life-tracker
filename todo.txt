@@ -71,3 +71,6 @@ ability to share progress graph on social media
 write firestore rules
 
 make dark mode
+
+use shouldcomponentupdate to improve performance,
+check html verification
