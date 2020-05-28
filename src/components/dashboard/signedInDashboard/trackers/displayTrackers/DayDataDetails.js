@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DeleteButtonWithConfirmation from '../../../../deleteButtonWithConfirmation/DeleteButtonWithConfirmation';
 
 function DayDataDetails(props) {
@@ -12,6 +12,22 @@ function DayDataDetails(props) {
             daysData.push(currentDay);
         }
     }
+
+    const [editStatus, setEditStatus] = useState(false);
+    const [editDayID, setEditDayID] = useState(null);
+
+    const handleEdit = (e) => {
+        if(editStatus) {
+            setEditDayID(null);
+            setEditStatus(false);
+        }
+        else {
+            const splitID = e.target.id.split('_');
+            setEditDayID(splitID[1]);
+            setEditStatus(true);
+        }
+    }
+
     return (
         <React.Fragment>
             <thead>
@@ -29,11 +45,28 @@ function DayDataDetails(props) {
                                     {
                                         day.values.map((field, index) =>
                                             <td key={`${day.id}-field${index}`}>
-                                                {field}
+                                                {
+                                                    day.id === editDayID ?
+                                                        <input
+                                                            type="text"
+                                                            value={field}
+                                                        />
+                                                        : <input
+                                                            type="text"
+                                                            value={field}
+                                                            readOnly
+                                                        />
+                                                    }
                                             </td>
                                         )
                                     }
-                                <td><button>Edit</button></td>
+                                <td>
+                                    <button onClick={handleEdit} type="button" id={`editButton_${day.id}`}>
+                                        {editStatus && day.id === editDayID ?
+                                        'Submit' :
+                                        'Edit'}
+                                    </button>
+                                </td>
                                 <td>
                                     <DeleteButtonWithConfirmation
                                         deleteFunction={deleteTrackedDay}
