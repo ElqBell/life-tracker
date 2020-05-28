@@ -38,7 +38,7 @@ class SignUp extends React.Component {
                     <label htmlFor="passwordRepeat">Repeat password</label>
                     <input onChange={this.handleChange} type="password" id="passwordRepeat" required/>
 
-                    <div><button type="submit">Sign up</button></div>
+                    <button type="submit">Sign up</button>
                 </form>
             </div>
         )

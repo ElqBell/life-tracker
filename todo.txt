@@ -74,3 +74,6 @@ make dark mode
 
 use shouldcomponentupdate to improve performance,
 check html verification
+
+create add data button verification if that date already exists
+and add tracker button verification if a tracker with that name already exists

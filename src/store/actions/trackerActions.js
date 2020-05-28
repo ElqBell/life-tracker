@@ -1,5 +1,3 @@
-import { getFirebase } from "react-redux-firebase";
-
 export const createTracker = (trackerData) => {
     return (dispatch, getState, {getFirestore}) => {
         const firestore = getFirestore();

@@ -33,7 +33,7 @@ class LogIn extends React.Component {
                     <label htmlFor="password">Password</label>
                     <input onChange={this.handleChange} type="password" id="password" required/>
 
-                    <div><button type="submit">Log in</button></div>
+                    <button type="submit">Log in</button>
                 </form>
             </div>
         )
