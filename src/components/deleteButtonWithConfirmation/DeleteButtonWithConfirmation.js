@@ -4,14 +4,10 @@ function DeleteButtonWithConfirmation(props) {
     const [deleteRequest, setDeleteRequest] = useState(false);
 
     const handleDeleteRequest = () => {
-        if(deleteRequest){
-            console.log('func');
+        if(deleteRequest)
             props.deleteFunction(props.itemID);
-        }
-        else {
-            console.log('to true');
+        else
             setDeleteRequest(true);
-        }
     }
     return (
         <button onClick={handleDeleteRequest} type="button">

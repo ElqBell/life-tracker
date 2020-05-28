@@ -2,17 +2,16 @@ import React from 'react';
 import DeleteButtonWithConfirmation from '../../../../deleteButtonWithConfirmation/DeleteButtonWithConfirmation';
 
 function DayDataDetails(props) {
-    const { tracker, trackedData, fieldNames } = props;
+    const { tracker, trackedData, fieldNames, deleteTrackedDay } = props;
     const daysData = [];
     if(trackedData) {
         for (let i = 0; i < trackedData.length; i++) {
             const currentDay = { id: trackedData[i].id, values: [] };
-            for (let j = 0; j < fieldNames.length - 1; j++)
+            for (let j = 0; j < fieldNames.length; j++)
                 currentDay['values'].push(trackedData[i][`value${j + 1}`]);
             daysData.push(currentDay);
         }
     }
-
     return (
         <React.Fragment>
             <thead>
@@ -37,7 +36,7 @@ function DayDataDetails(props) {
                                 <td><button>Edit</button></td>
                                 <td>
                                     <DeleteButtonWithConfirmation
-                                        deleteFunction={props.deleteTrackedDay}
+                                        deleteFunction={deleteTrackedDay}
                                         itemID={ { dayID: day.id, trackerID: tracker.id } }
                                     />
                                 </td>

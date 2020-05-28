@@ -38,7 +38,7 @@ function TrackerDetails(props) {
                             tracker={tracker}
                             trackedData={trackedData}
                             fieldNames={fieldNames}
-                            deleteTrackedDay={deleteTrackedDay}
+                            deleteTrackedDay={props.deleteTrackedDay}
                         />
                     </table>
                 </div>

@@ -33,7 +33,7 @@ export const deleteTracker = (trackerID) => {
 };
 
 export const addFieldData = ({ fieldDate, fieldValues, trackerID}) => {
-    return(dispatch, getState, {getFirebase, getFirestore}) => {
+    return(dispatch, getState, {getFirestore}) => {
         const firestore = getFirestore();
         const state = getState();
         firestore.collection(`users/${state.firebase.auth.uid}/trackers/${trackerID}/trackedData`)
@@ -48,9 +48,8 @@ export const deleteTrackedDay = ({trackerID, dayID}) => {
     return (dispatch, getState, {getFirestore}) => {
         const firestore = getFirestore();
         const state = getState();
-        console.log('acto');
         firestore.doc(`users/${state.firebase.auth.uid}/trackers/${trackerID}/trackedData/${dayID}`)
-        .set({})
+        .delete()
         .then(dispatch({ type: 'DELETE_TRACKED_DAY_DATA_SUCCESS' }))
         .catch(error => dispatch({ type: 'DELETE_TRACKED_DAY_DATA_ERROR', error}));
     };
